@@ -46,6 +46,9 @@
 * Optional.isEmpty()
 * Predicate.not
 * String changes: lines, repeat, isBlank, strip
+* 318: Epsilon: A No-Op Garbage Collector
+* 321: HTTP Client (Standard)
+* ZGC: A Scalable Low-Latency Garbage Collector(Experimental)
   
 # java12
 * JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
@@ -70,8 +73,19 @@
     determine overall Java heap usage and return unused Java heap memory to the operating system
 
 # java13
+* ZGC: Uncommit Unused Memory
+* Reimplement the Legacy Socket API
+* Switch Expressions (Preview)
+* Text Blocks (Preview)
+
 # java14
-# java14
+* Text Blocks (Second Preview)
+* Remove the Concurrent Mark Sweep (CMS) Garbage Collector
+* Records (Preview)
+* Switch Expressions (Standard)
+* Helpful NullPointerExceptions
+* Pattern Matching for instanceof
+
 # java15
 * JEP 360: Sealed Classes (Preview)
     ```
