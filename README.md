@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # java-feature-timeline
 * references
     * https://www.techgeeknext.com/java/java15-features
@@ -38,6 +40,7 @@
 * Local-Variable Type Inference
 * Enable the HotSpot VM to allocate the Java object heap on an alternative memory device
 * List/Set/Map.copyOf() // no null elements
+* Experimental Java-based JIT compiler (GraalVM)
 
 # java11
 * Local-Variable Syntax for Lambda Parameters
