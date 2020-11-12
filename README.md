@@ -1,9 +1,37 @@
 # java-feature-timeline
 * references
     * https://www.techgeeknext.com/java/java15-features
+    * https://www.techgeeknext.com/java/java14-features
 
 # java8
+* Java Date Time API
+* Streams
+* Functional Interfaces, Lambda expressions
+* default & static methods in interfaces
+* hashmap implementation (TreeSet in buckets instead of LinkedList)
+* CompletableFuture
+
 # java9
+* module system
+  * replace the classpath with graph of dependencies
+* factory Methods for Immutable List, Set, Map and Map.Entry
+* private methods in Interfaces
+* reactive Streams
+* `Optional.ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)`, `Optional.stream()`
+* deprecate `finalize()` method
+* not valid: underscore _
+    * international meaning: I DON'T CARE (scala)
+* stream enhancements
+    * `takeWhile`, `dropWhile`
+    * `iterate(seed, Predicate, Function)` ~ `for(seed, Predicate, Function)`
+    * `or(() -> Optional.of(substitute))`
+* optional enhancements
+    * `Optional.ifPresentOrElse(Consumer<? super T> action, Runnable emptyAction)`
+    * is a subset of Stream: `optional.stream()`
+        * 0, 1 elem; Stream, 0, 1, many
+* collectors: filtering, flatMapping
+* CompletableFuture: completeOnTimeout, orTimeout
+
 # java10
 # java11
 # java12
