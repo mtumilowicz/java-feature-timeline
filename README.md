@@ -3,6 +3,7 @@
     * https://www.techgeeknext.com/java/java15-features
     * https://www.techgeeknext.com/java/java14-features
     * https://mkyong.com/java/what-is-new-in-java-12/
+    * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
 
 # java8
 * Java Date Time API
