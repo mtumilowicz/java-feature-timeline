@@ -33,7 +33,19 @@
 * CompletableFuture: completeOnTimeout, orTimeout
 
 # java10
+* Local-Variable Type Inference
+* Enable the HotSpot VM to allocate the Java object heap on an alternative memory device
+* List/Set/Map.copyOf() // no null elements
+
 # java11
+* Local-Variable Syntax for Lambda Parameters
+  * @NotNull Integer i -> ... into @NotNull var i ->
+  * final Integer i -> ... into final var i
+* Remove the Java EE and CORBA Modules
+* Optional.isEmpty()
+* Predicate.not
+* String changes: lines, repeat, isBlank, strip
+  
 # java12
 # java13
 # java14
