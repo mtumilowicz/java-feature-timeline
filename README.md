@@ -75,7 +75,7 @@
 # java13
 * ZGC: Uncommit Unused Memory
 * Reimplement the Legacy Socket API
-* Switch Expressions (Preview)
+* Switch Expressions (Second Preview)
 * Text Blocks (Preview)
 
 # java14
@@ -84,7 +84,12 @@
 * Records (Preview)
 * Switch Expressions (Standard)
 * Helpful NullPointerExceptions
-* Pattern Matching for instanceof
+    ```
+    Exception in thread "main" java.lang.NullPointerException:
+            Cannot read field 'c' because 'a.b' is null.
+        at Prog.main(Prog.java:5)
+    ```
+* Pattern Matching for instanceof (Preview)
 
 # java15
 * JEP 360: Sealed Classes (Preview)
