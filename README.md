@@ -2,6 +2,7 @@
 * references
     * https://www.techgeeknext.com/java/java15-features
     * https://www.techgeeknext.com/java/java14-features
+    * https://mkyong.com/java/what-is-new-in-java-12/
 
 # java8
 * Java Date Time API
@@ -47,6 +48,27 @@
 * String changes: lines, repeat, isBlank, strip
   
 # java12
+* JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
+* JEP 325: Switch Expressions (Preview)
+    ```
+    private static String getText(int number) {
+            return switch (number) {
+                case 1, 2 -> "one or two";
+                case 3 -> "three";
+                case 4, 5, 6 -> "four or five or six";
+                default -> "unknown";
+            };
+    }
+    ```
+* JEP 334: JVM Constants API
+    * new classes and interfaces to model the key class-file and run-time artifacts, for example, the constant pool
+* JEP 344: Abortable Mixed Collections for G1
+    * splits the problematic collection set into two parts – mandatory and optional
+        * the G1 will abort the optional part if lack of time to handle it
+* JEP 346: Promptly Return Unused Committed Memory from G1
+    * if the application is low of the activity or idle, G1 periodically trigger a concurrent cycle to 
+    determine overall Java heap usage and return unused Java heap memory to the operating system
+
 # java13
 # java14
 # java14
