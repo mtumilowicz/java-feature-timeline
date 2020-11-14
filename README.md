@@ -5,6 +5,7 @@
     * https://www.techgeeknext.com/java/java15-features
     * https://www.techgeeknext.com/java/java14-features
     * https://mkyong.com/java/what-is-new-in-java-12/
+    * https://openjdk.java.net/jeps/243
     * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
 
 # java8
@@ -35,6 +36,9 @@
         * 0, 1 elem; Stream, 0, 1, many
 * collectors: filtering, flatMapping
 * CompletableFuture: completeOnTimeout, orTimeout
+* JEP 243: Java-Level JVM Compiler Interface
+    * Develop a Java based JVM compiler interface (JVMCI) enabling a compiler written in Java to be used 
+    by the JVM as a dynamic compiler.
 
 # java10
 * Local-Variable Type Inference
