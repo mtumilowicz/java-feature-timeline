@@ -7,6 +7,7 @@
     * https://mkyong.com/java/what-is-new-in-java-12/
     * https://openjdk.java.net/jeps/243
     * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
+    * [Enough java.lang.String to Hang Ourselves... by Heinz Kabutz](https://www.youtube.com/watch?v=DcLQm2EpDI0)
 
 # java8
 * Java Date Time API
@@ -39,6 +40,10 @@
 * JEP 243: Java-Level JVM Compiler Interface
     * Develop a Java based JVM compiler interface (JVMCI) enabling a compiler written in Java to be used 
     by the JVM as a dynamic compiler.
+* StringConcatFactory (instead compiling to StringBuilder)
+    * https://github.com/mtumilowicz/java9-string-concat
+* String LATIN-1 (char[] replaced with byte[])
+    * https://github.com/mtumilowicz/java11-string
 
 # java10
 * Local-Variable Type Inference
