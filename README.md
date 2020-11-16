@@ -85,7 +85,7 @@
 * JEP 346: Promptly Return Unused Committed Memory from G1
     * if the application is low of the activity or idle, G1 periodically trigger a concurrent cycle to 
     determine overall Java heap usage and return unused Java heap memory to the operating system
-* new risk-reduction mechanism: Preview Features 
+* JEP 12: new risk-reduction mechanism: Preview Features 
 
 ## java13
 * ZGC: Uncommit Unused Memory
