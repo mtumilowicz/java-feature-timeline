@@ -8,8 +8,9 @@
     * https://openjdk.java.net/jeps/243
     * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
     * [Enough java.lang.String to Hang Ourselves... by Heinz Kabutz](https://www.youtube.com/watch?v=DcLQm2EpDI0)
+    * [Java Futures, Devoxx 2018 Edition by Brian Goetz](https://www.youtube.com/watch?v=4r2Wg-TY7gU)
 
-# java8
+## java8
 * Java Date Time API
 * Streams
 * Functional Interfaces, Lambda expressions
@@ -17,7 +18,7 @@
 * hashmap implementation (TreeSet in buckets instead of LinkedList)
 * CompletableFuture
 
-# java9
+## java9
 * module system
   * replace the classpath with graph of dependencies
 * factory Methods for Immutable List, Set, Map and Map.Entry
@@ -45,13 +46,13 @@
 * String LATIN-1 (char[] replaced with byte[])
     * https://github.com/mtumilowicz/java11-string
 
-# java10
+## java10
 * Local-Variable Type Inference
 * Enable the HotSpot VM to allocate the Java object heap on an alternative memory device
 * List/Set/Map.copyOf() // no null elements
 * Experimental Java-based JIT compiler (GraalVM)
 
-# java11
+## java11
 * Local-Variable Syntax for Lambda Parameters
   * @NotNull Integer i -> ... into @NotNull var i ->
   * final Integer i -> ... into final var i
@@ -63,7 +64,7 @@
 * 321: HTTP Client (Standard)
 * ZGC: A Scalable Low-Latency Garbage Collector(Experimental)
   
-# java12
+## java12
 * JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
 * JEP 325: Switch Expressions (Preview)
     ```
@@ -84,14 +85,15 @@
 * JEP 346: Promptly Return Unused Committed Memory from G1
     * if the application is low of the activity or idle, G1 periodically trigger a concurrent cycle to 
     determine overall Java heap usage and return unused Java heap memory to the operating system
+* new risk-reduction mechanism: Preview Features 
 
-# java13
+## java13
 * ZGC: Uncommit Unused Memory
 * Reimplement the Legacy Socket API
 * Switch Expressions (Second Preview)
 * Text Blocks (Preview)
 
-# java14
+## java14
 * Text Blocks (Second Preview)
 * Remove the Concurrent Mark Sweep (CMS) Garbage Collector
 * Records (Preview)
@@ -104,7 +106,7 @@
     ```
 * Pattern Matching for instanceof (Preview)
 
-# java15
+## java15
 * JEP 360: Sealed Classes (Preview)
     ```
     public sealed class Animal 
