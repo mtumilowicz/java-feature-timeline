@@ -9,6 +9,7 @@
     * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
     * [Enough java.lang.String to Hang Ourselves... by Heinz Kabutz](https://www.youtube.com/watch?v=DcLQm2EpDI0)
     * [Java Futures, Devoxx 2018 Edition by Brian Goetz](https://www.youtube.com/watch?v=4r2Wg-TY7gU)
+    * [JDK11 - Introduction to JDK Flight Recorder](https://www.youtube.com/watch?v=7z_R2Aq-Fl8)
 
 ## java8
 * Java Date Time API
@@ -60,10 +61,14 @@
 * Optional.isEmpty()
 * Predicate.not
 * String changes: lines, repeat, isBlank, strip
-* 318: Epsilon: A No-Op Garbage Collector
-* 321: HTTP Client (Standard)
+* JEP 318: Epsilon: A No-Op Garbage Collector
+* JEP 321: HTTP Client (Standard)
 * ZGC: A Scalable Low-Latency Garbage Collector(Experimental)
-  
+* JEP 328: Flight Recorder
+    * illuminate the JVM "black box" for key insights
+    * unified view over system-wide interactions and relations
+    * GC, Monitors, JIT compilations, class loading, I/O, native memory...
+
 ## java12
 * JEP 189: Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
 * JEP 325: Switch Expressions (Preview)
