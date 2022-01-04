@@ -10,6 +10,7 @@
     * [Enough java.lang.String to Hang Ourselves... by Heinz Kabutz](https://www.youtube.com/watch?v=DcLQm2EpDI0)
     * [Java Futures, Devoxx 2018 Edition by Brian Goetz](https://www.youtube.com/watch?v=4r2Wg-TY7gU)
     * [JDK11 - Introduction to JDK Flight Recorder](https://www.youtube.com/watch?v=7z_R2Aq-Fl8)
+    * https://www.baeldung.com/java-16-new-features
 
 ## java8
 * Java Date Time API
@@ -155,3 +156,5 @@
 * JEP 383: Foreign-Memory Access API (Second Incubator)
     * an API for Java programs to access foreign memory outside the Java heap in a secure and efficient way
 * JEP 384: Records (Second Preview)
+
+## java 16
