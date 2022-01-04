@@ -11,6 +11,8 @@
     * [Java Futures, Devoxx 2018 Edition by Brian Goetz](https://www.youtube.com/watch?v=4r2Wg-TY7gU)
     * [JDK11 - Introduction to JDK Flight Recorder](https://www.youtube.com/watch?v=7z_R2Aq-Fl8)
     * https://www.baeldung.com/java-16-new-features
+    * https://www.baeldung.com/java-17-new-features
+    * https://openjdk.java.net/jeps/406
 
 ## java8
 * Java Date Time API
@@ -158,3 +160,60 @@
 * JEP 384: Records (Second Preview)
 
 ## java 16
+* InvocationHandler.invokeDefault(prox, method, args)
+    * invoking default methods of an interface via a dynamic proxy using reflection
+* `.stream().toList() // instead of .collect(Collectors.toList())`
+* defining records as class members of inner classes
+* instanceof with casting
+    ```
+    if (obj instanceof String t) {
+        // t is a string
+    }
+    ```
+
+## java 17
+* prevent JDK users from accessing internal APIs, except for critical ones like sun.misc.Unsafe
+* pattern matching in switch (preview)
+    ```
+    static String formatterPatternSwitch(Object o) {
+        return switch (o) {
+            case null      -> System.out.println("Oops");
+            case Integer i -> String.format("int %d", i);
+            case Long l    -> String.format("long %d", l);
+            case Double d  -> String.format("double %f", d);
+            case String s  -> String.format("String %s", s);
+            default        -> o.toString();
+        };
+    }
+    ```
+    instead of
+    ```
+    static String formatter(Object o) {
+        String formatted = "unknown";
+        if (o instanceof Integer i) {
+            formatted = String.format("int %d", i);
+        } else if (o instanceof Long l) {
+            formatted = String.format("long %d", l);
+        } else if (o instanceof Double d) {
+            formatted = String.format("double %f", d);
+        } else if (o instanceof String s) {
+            formatted = String.format("String %s", s);
+        }
+        return formatted;
+    }
+    ```
+    and for interfaces
+    ```
+    static void testTriangle(Shape s) {
+        switch (s) {
+            case Triangle t && (t.calculateArea() > 100) ->
+                System.out.println("Large triangle");
+            default ->
+                System.out.println("A shape, possibly a small triangle");
+        }
+    }
+    ```
+* sealed classes
+* remove Ahead-Of-Time (AOT) compilation (JEP 295) and Just-In-Time (JIT) compiler from GraalVM (JEP-317)
+* Foreign Function and Memory API allow Java developers to access code from outside the JVM and manage memory out of the heap
+    * replace the JNI API and improve the security and performance compared to the old one
