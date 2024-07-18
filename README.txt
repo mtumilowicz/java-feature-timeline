@@ -5,15 +5,16 @@
     * https://www.techgeeknext.com/java/java15-features
     * https://www.techgeeknext.com/java/java14-features
     * https://mkyong.com/java/what-is-new-in-java-12/
-    * https://openjdk.java.net/jeps/243
+    * https://openjdk.java.net/jeps
     * [Java 9 and Beyond by Venkat Subramaniam](https://www.youtube.com/watch?v=oRcOiGWK9Ts)
     * [Enough java.lang.String to Hang Ourselves... by Heinz Kabutz](https://www.youtube.com/watch?v=DcLQm2EpDI0)
     * [Java Futures, Devoxx 2018 Edition by Brian Goetz](https://www.youtube.com/watch?v=4r2Wg-TY7gU)
     * [JDK11 - Introduction to JDK Flight Recorder](https://www.youtube.com/watch?v=7z_R2Aq-Fl8)
     * https://www.baeldung.com/java-16-new-features
     * https://www.baeldung.com/java-17-new-features
-    * https://openjdk.java.net/jeps/406
     * https://adevait.com/java/whats-new-with-java-18
+    * https://en.wikipedia.org/wiki/Java_version_history
+    * https://openjdk.org/jeps
 
 ## java8
 * Java Date Time API
@@ -221,11 +222,151 @@
 
 ## java 18
 * default charset for the String and related classes has been updated to UTF-8
-   * example
-      ```
-      // Default charset is UTF-8
-      byte[] byteArray = myString.getBytes();
-      ```
-   * before: JDK determined the default charset based on the runtime environment
+    * example
+       ```
+       // Default charset is UTF-8
+       byte[] byteArray = myString.getBytes();
+       ```
+    * before: JDK determined the default charset based on the runtime environment
 * reimplemented core reflection with method handles
-   * 
+    * `java.lang.reflect` implemented using `java.lang.invoke`
+    * example
+        ```
+        import java.lang.reflect.*;
+
+        Method method = MyClass.class.getMethod("myMethod");
+        method.invoke(null);
+        ```
+        under the hood looks like
+        ```
+        import java.lang.invoke.*;
+
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        MethodHandle methodHandle = lookup.findStatic(MyClass.class, "myMethod", MethodType.methodType(void.class));
+        methodHandle.invoke();
+        ```
+* finalization mechanism, provided by the `Object.finalize()` method, has been deprecated for removal in a future release
+
+## java 19
+* preview
+    * record patterns to deconstruct record values
+    * foreign function & memory api
+        * API by which Java programs can interoperate with code and data outside of the Java runtime
+        * example
+            ```
+            Linker linker          = Linker.nativeLinker();
+            SymbolLookup stdlib    = linker.defaultLookup();
+            MethodHandle radixsort = linker.downcallHandle(stdlib.find("radixsort"), ...);
+            ```
+    * virtual threads
+    * pattern matching for switch
+
+## java 20
+* finals preview for java 19
+
+## java 21
+* sequenced collections
+    * new interfaces to represent collections with a defined order
+    * example
+        ```
+        interface SequencedCollection<E> extends Collection<E> {
+            // new method
+            SequencedCollection<E> reversed();
+            // methods promoted from Deque
+            void addFirst(E);
+            void addLast(E);
+            E getFirst();
+            E getLast();
+            E removeFirst();
+            E removeLast();
+        }
+        ```
+* generational ZGC
+    * extending the Z Garbage Collector (ZGC) to maintain separate generations for young and old objects
+* record patterns
+    ```
+    static void printSum(Object obj) {
+        if (obj instanceof Point(int x, int y)) {
+            System.out.println(x+y);
+        }
+    }
+    ```
+* pattern matching for switch
+    ```
+    static String formatterPatternSwitch(Object obj) {
+        return switch (obj) {
+            case Integer i -> String.format("int %d", i);
+            case Long l    -> String.format("long %d", l);
+            case Double d  -> String.format("double %f", d);
+            case String s  -> String.format("String %s", s);
+            default        -> obj.toString();
+        };
+    }
+    ```
+* virtual threads
+* preview
+    * string templates
+        ```
+        String name    = "Joan Smith";
+        String phone   = "555-123-4567";
+        String address = "1 Maple Drive, Anytown";
+        String json = STR."""
+            {
+                "name":    "\{name}",
+                "phone":   "\{phone}",
+                "address": "\{address}"
+            }
+            """;
+        ```
+    * foreign function & memory api
+    * unnamed patterns and variables
+        * patterns
+            ```
+            switch (b) {
+                case Box(RedBall _), Box(BlueBall _) -> processBox(b);
+                case Box(GreenBall _)                -> stopProcessing();
+                case Box(_)                          -> pickAnotherBox();
+            }
+            ```
+        * variables
+            ```
+            stream.collect(Collectors.toMap(String::toUpperCase, _ -> "NODATA"))
+            ```
+    * unnamed classes and instance main methods
+        * main methods are not static, need not be public, and need not have a String[] parameter
+            ```
+            class HelloWorld {
+                void main() {
+                    System.out.println("Hello, World!");
+                }
+            }
+            ```
+        * unnamed classes make the class declaration implicit
+            ```
+            void main() {
+                System.out.println("Hello, World!");
+            }
+            ```
+    * scoped values
+        * is an implicit method parameter preferred to thread-local variables
+        * example
+            ```
+            private final static ScopedValue<FrameworkContext> CONTEXT
+                                    = ScopedValue.newInstance();
+
+            void serve(Request request, Response response) {
+                var context = createContext(request);
+                ScopedValue.where(CONTEXT, context)            // (2)
+                           .run(() -> Application.handle(request, response));
+            }
+            ```
+    * structured concurrency
+        ```
+        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+            List<? extends Supplier<T>> suppliers = tasks.stream().map(scope::fork).toList();
+            scope.join()
+                 .throwIfFailed();  // Propagate exception if any subtask fails
+            // Here, all tasks have succeeded, so compose their results
+            return suppliers.stream().map(Supplier::get).toList();
+        }
+        ```
