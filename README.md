@@ -13,6 +13,7 @@
     * https://www.baeldung.com/java-16-new-features
     * https://www.baeldung.com/java-17-new-features
     * https://openjdk.java.net/jeps/406
+    * https://adevait.com/java/whats-new-with-java-18
 
 ## java8
 * Java Date Time API
@@ -217,3 +218,14 @@
 * remove Ahead-Of-Time (AOT) compilation (JEP 295) and Just-In-Time (JIT) compiler from GraalVM (JEP-317)
 * Foreign Function and Memory API allow Java developers to access code from outside the JVM and manage memory out of the heap
     * replace the JNI API and improve the security and performance compared to the old one
+
+## java 18
+* default charset for the String and related classes has been updated to UTF-8
+   * example
+      ```
+      // Default charset is UTF-8
+      byte[] byteArray = myString.getBytes();
+      ```
+   * before: JDK determined the default charset based on the runtime environment
+* reimplemented core reflection with method handles
+   * 
